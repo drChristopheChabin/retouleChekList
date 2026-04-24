@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retoule – Checklist</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a90d9">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Retoule">
+  <link rel="apple-touch-icon" href="icon.svg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -178,8 +184,7 @@
 </head>
 <body>
 
-<h1>🏠 Retoule – Checklist
-  Départ</h1>
+<h1>🏠 Retoule – Checklist  Départ</h1>
 
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('totale')">Check Liste Totale</button>
@@ -329,6 +334,11 @@
   function fmtDate(d) {
     return d.toLocaleDateString('fr-FR', { day:'2-digit', month:'2-digit', year:'numeric' })
            + ' ' + d.toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+  }
+
+  // ── Service Worker ─────────────────────────────────────────────────────────
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
   }
 
   // ── Restore state on load ──────────────────────────────────────────────────
