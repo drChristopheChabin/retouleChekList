@@ -1,4 +1,4 @@
-const CACHE = 'retoule-v1';
+const CACHE = 'retoule-v2';
 const ASSETS = [
   './',
   './index.html',
